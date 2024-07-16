@@ -22,7 +22,8 @@ OBJS=pool_allocator.o\
      disastrOS_sleep.o\
      disastrOS_shutdown.o\
      disastrOS_schedule.o\
-     disastrOS_preempt.o
+     disastrOS_preempt.o\
+	 disastrOS_PSEUDOEXEC.o
 
 LIBS=libdisastrOS.a
 
