@@ -28,7 +28,7 @@ void disastrOS_preempt();
 void disastrOS_spawn(void (*f)(void*), void* args );
 void disastrOS_shutdown();
 void disastrOS_sleep(int);
-void disastrOS_pseudoexec(void (*f)(void*), void* args );
+void disastrOS_pseudoexec(char* lib, char* func, double* argument_list[]);
 
 // debug function, prints the state of the internal system
 void disastrOS_printStatus();
