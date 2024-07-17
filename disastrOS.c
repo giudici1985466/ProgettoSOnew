@@ -257,6 +257,10 @@ void disastrOS_sleep(int sleep_time) {
   disastrOS_syscall(DSOS_CALL_SLEEP, sleep_time);
 }
 
+void disastrOS_pseudoexec(void (*f)(void*), void* args ) {
+  disastrOS_syscall(DSOS_CALL_PSEUDOEXEC, f, args);
+}
+
 int disastrOS_getpid(){
   if (! running)
     return -1;
