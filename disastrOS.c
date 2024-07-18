@@ -257,7 +257,7 @@ void disastrOS_sleep(int sleep_time) {
   disastrOS_syscall(DSOS_CALL_SLEEP, sleep_time);
 }
 
-void disastrOS_pseudoexec(char* lib, char* func, double* argument_list[]) {     //userò su una libreria matematica
+void disastrOS_pseudoexec(char* lib, char* func, double* argument_list[]) {     //userò su una libreria
   disastrOS_syscall(DSOS_CALL_PSEUDOEXEC, lib, func, argument_list);
 }
 

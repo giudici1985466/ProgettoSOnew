@@ -8,7 +8,8 @@ HEADERS=disastrOS.h\
 	disastrOS_syscalls.h\
 	disastrOS_timer.h\
 	linked_list.h\
-	pool_allocator.h
+	pool_allocator.h\
+	pseudoexec.h
 
 OBJS=pool_allocator.o\
      linked_list.o\
@@ -23,7 +24,8 @@ OBJS=pool_allocator.o\
      disastrOS_shutdown.o\
      disastrOS_schedule.o\
      disastrOS_preempt.o\
-	 disastrOS_PSEUDOEXEC.o
+	 disastrOS_PSEUDOEXEC.o\
+	 pseudoexec.o
 
 LIBS=libdisastrOS.a
 
