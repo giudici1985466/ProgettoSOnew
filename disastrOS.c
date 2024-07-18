@@ -163,8 +163,8 @@ void disastrOS_start(void (*f)(void*), void* f_args, char* logfile){
   syscall_vector[DSOS_CALL_SHUTDOWN]      = internal_shutdown;
   syscall_numarg[DSOS_CALL_SHUTDOWN]      = 0;
 
-  syscall_vector[DSOS_CALL_PSEUDOEXEC]    = internal_pseudoexec;
-  syscall_numarg[DSOS_CALL_PSEUDOEXEC]    = 3;
+  //syscall_vector[DSOS_CALL_PSEUDOEXEC]    = internal_pseudoexec;
+  //syscall_numarg[DSOS_CALL_PSEUDOEXEC]    = 3;
 
   // setup the scheduling lists
   running=0;
@@ -257,9 +257,9 @@ void disastrOS_sleep(int sleep_time) {
   disastrOS_syscall(DSOS_CALL_SLEEP, sleep_time);
 }
 
-void disastrOS_pseudoexec(char* lib, char* func, double* argument_list[]) {     //userò su una libreria
-  disastrOS_syscall(DSOS_CALL_PSEUDOEXEC, lib, func, argument_list);
-}
+//void disastrOS_pseudoexec(char* lib, char* func, double* argument_list[]) {     //userò su una libreria
+//  disastrOS_syscall(DSOS_CALL_PSEUDOEXEC, lib, func, argument_list);
+//}
 
 int disastrOS_getpid(){
   if (! running)

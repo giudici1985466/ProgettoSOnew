@@ -15,7 +15,7 @@
 #define DSOS_EWAIT  -5
 #define DSOS_ESPAWN  -6
 #define DSOS_ESLEEP  -7
-#define DSOS_EPSEUDOEXEC -8
+//#define DSOS_EPSEUDOEXEC -8
 
 
 // syscall numbers
@@ -28,7 +28,7 @@
 #define DSOS_CALL_SPAWN     5
 #define DSOS_CALL_SLEEP     6
 #define DSOS_CALL_SHUTDOWN  7
-#define DSOS_CALL_PSEUDOEXEC 8
+//#define DSOS_CALL_PSEUDOEXEC 8
 
 // scheduling
 #define ALPHA 0.5f

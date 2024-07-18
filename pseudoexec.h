@@ -1,6 +1,9 @@
 #pragma once
 #include "disastrOS_pcb.h"
 
+#define MAX_PSEUDOEXEC_ARGS 3
+#define MAX_LENGTH_LIBNAME 20
+#define MAX_LENGTH_SYMBOLNAME 50
 
 typedef struct{
     int num_args;
@@ -12,8 +15,8 @@ typedef struct{
 
 
 typedef struct {
-    char lib [50];
-    char func [50];
+    char lib [MAX_LENGTH_LIBNAME];
+    char func [MAX_LENGTH_SYMBOLNAME];
     Exec_struct_internal arguments;
 } Exec_struct_external;
 

@@ -19,4 +19,4 @@ void internal_schedule();
 
 void internal_sleep();
 
-void internal_pseudoexec();
+//void internal_pseudoexec();
