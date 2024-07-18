@@ -32,12 +32,14 @@ LIBS=libdisastrOS.a
 
 BINS=disastrOS_test
 
+TESTLIB=libtestlib.so
+
 #disastros_test
 
 .phony: clean all
 
 
-all:	$(LIBS) $(BINS)
+all:	$(LIBS) $(BINS) $(TESTLIB)
 
 %.o:	%.c $(HEADERS)
 	$(CC) $(CCOPTS) -c -o $@  $<
@@ -49,5 +51,8 @@ libdisastrOS.a: $(OBJS)
 disastrOS_test:		disastrOS_test.c $(LIBS)
 	$(CC) $(CCOPTS) -o $@ $^
 
+libtestlib.so:	funzionilibreria.c	
+	gcc -shared -o libtestlib.so -fPIC funzionilibreria.c
+
 clean:
-	rm -rf *.o *~ $(LIBS) $(BINS)
+	rm -rf *.o *~ $(LIBS) $(BINS) $(TESTLIB)

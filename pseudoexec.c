@@ -15,7 +15,8 @@
 void execFunction(void* args){
     void *handle;
     void (*funzione)(Exec_struct_internal*, Exec_result*);
-    Exec_result risultato={NULL,TIPO_UNKNOWN};
+    int res=0;
+    Exec_result risultato={&res,TIPO_UNKNOWN};
     char *error;
     Exec_struct_external *values=(Exec_struct_external*) args;
 
