@@ -35,4 +35,5 @@
 #define INTERVAL 10 // milliseconds for timer tick
 
 //pseudoexec
-#define PSEUDOEXEC_MAX_ARGS 2
+#define PSEUDOEXEC_MAX_ARGS 3
+#define PSEUDOEXEC_TESTLIB "./libtestlib.so"

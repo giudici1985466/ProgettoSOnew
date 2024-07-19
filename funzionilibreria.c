@@ -56,7 +56,7 @@ void* testlib_max_int (Exec_struct_internal* arguments, Exec_result* result){   
     
     case 2:
         int temp1=*(int*)(arguments->arg1);
-        int temp2=*(int*)(arguments->arg1);
+        int temp2=*(int*)(arguments->arg2);
 
         if(temp1>temp2){
             res=temp1;
@@ -68,7 +68,7 @@ void* testlib_max_int (Exec_struct_internal* arguments, Exec_result* result){   
         break;
     }
 
-    *(float*)(result->dato)=res;                                                                //restituisce un valore tramite la struct result
+    *(int*)(result->dato)=res;                                                                //restituisce un valore tramite la struct result
     result->tipo=TIPO_INT; 
 
     

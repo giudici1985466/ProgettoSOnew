@@ -3,9 +3,10 @@
 #include <stdlib.h>
 #include <poll.h>
 #include <dlfcn.h>
-#include <gnu/lib-names.h>
+
 
 #include "disastrOS.h"
+#include "disastrOS_syscalls.h"
 
 
 #include "pseudoexec.h"
@@ -15,15 +16,19 @@
 void execFunction(void* args){
     void *handle;
     void (*funzione)(Exec_struct_internal*, Exec_result*);
-    int res=0;
+    int res=-1;
     Exec_result risultato={&res,TIPO_UNKNOWN};
     char *error;
     Exec_struct_external *values=(Exec_struct_external*) args;
 
     handle = dlopen(values->lib, RTLD_LAZY);
     if (!handle) {
-        fprintf(stderr, "%s\n", dlerror());
-        return;
+        fprintf(stderr, "%s\n",dlerror());
+        printf("Error trying to retrieve the library\n");
+        printf("Exiting...\n");
+        running->syscall_retvalue=DSOS_ESPAWN;
+        exit(EXIT_FAILURE);
+        
     }
 
 
@@ -33,8 +38,11 @@ void execFunction(void* args){
 
     error = dlerror();
     if (error != NULL) {
-        fprintf(stderr, "%s\n", error);
-        return;
+        fprintf(stderr, "%s\n",error);
+        printf("The function you're looking for is not in this library, check your spelling!\n");
+        printf("Exiting...\n");
+        running->syscall_retvalue=DSOS_ESPAWN;
+        exit(EXIT_FAILURE);
     }
     printf("------------------------------------------------------\n\n\n");
     printf("Hello, I am the child function %d\n",disastrOS_getpid());
@@ -58,10 +66,10 @@ void execFunction(void* args){
             break;
         case TIPO_POINTER:
             printf("The return value of the function is 'pointer':\n");
+            printf("%p\n",risultato.dato);
             break;
         case TIPO_UNKNOWN:
             printf("The function has no return value\n");
-            printf("%p\n",risultato.dato);
             break;
         default:
             printf("Non valid type\n");
