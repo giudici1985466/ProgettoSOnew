@@ -17,7 +17,7 @@ void* testlib_triangle_print (Exec_struct_internal* arguments, Exec_result* resu
         }
         printf("\n");
     }
-    result->tipo=TIPO_UNKNOWN; 
+    *(int*)result->tipo=TIPO_UNKNOWN; 
                                                                         //non ritorna nulla, se non il tipo_unkwown 
 }
 
@@ -30,7 +30,7 @@ void* testlib_rectangle_print (Exec_struct_internal* arguments, Exec_result* res
         }
         printf("\n");
     }
-    result->tipo=TIPO_UNKNOWN;                                                                   //non ritorna nulla, se non il tipo_unkwown 
+    *(int*)result->tipo=TIPO_UNKNOWN;                                                                   //non ritorna nulla, se non il tipo_unkwown 
 }
 
 void* testlib_cube_volume (Exec_struct_internal* arguments, Exec_result* result){               //calcola il volume di un cubo usando i 3 argomenti come dimensione
@@ -41,7 +41,7 @@ void* testlib_cube_volume (Exec_struct_internal* arguments, Exec_result* result)
     float res=a*b*c;
 
     *(float*)(result->dato)=res;                                                                //restituisce un valore tramite la struct result
-    result->tipo=TIPO_FLOAT;  
+    *(int*)result->tipo=TIPO_FLOAT;  
 }
 
 void* testlib_max_int (Exec_struct_internal* arguments, Exec_result* result){                  //calcola il massimo tra gli argomenti forniti
@@ -69,7 +69,7 @@ void* testlib_max_int (Exec_struct_internal* arguments, Exec_result* result){   
     }
 
     *(int*)(result->dato)=res;                                                                //restituisce un valore tramite la struct result
-    result->tipo=TIPO_INT; 
+    *(int*)result->tipo=TIPO_INT; 
 
     
 }
