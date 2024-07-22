@@ -54,10 +54,10 @@ void initFunction(void* args) {
   float b_f=21.6;
   float c_f=32.14;
 
-  int res1,res2,res3,res4,res5,res6,res7;
-  int tipo1=TIPO_UNKNOWN,tipo2=TIPO_UNKNOWN,tipo3=TIPO_UNKNOWN,tipo4=TIPO_UNKNOWN,tipo5=TIPO_UNKNOWN,tipo6=TIPO_UNKNOWN,tipo7=TIPO_UNKNOWN;
+  int res1,res2,res3,res4,res5,res6,res7,res8;
+  int tipo1=TIPO_UNKNOWN,tipo2=TIPO_UNKNOWN,tipo3=TIPO_UNKNOWN,tipo4=TIPO_UNKNOWN,tipo5=TIPO_UNKNOWN,tipo6=TIPO_UNKNOWN,tipo7=TIPO_UNKNOWN,tipo8=TIPO_UNKNOWN;
 
-  Exec_struct_external external_struct_array [7];
+  Exec_struct_external external_struct_array [8];
 
 
   Exec_struct_external estr1 ={PSEUDOEXEC_TESTLIB,"testlib_triangle_print",{1,&a,0,0},{&res1,&tipo1}};
@@ -81,6 +81,9 @@ void initFunction(void* args) {
   Exec_struct_external estrerr2 = {PSEUDOEXEC_TESTLIB,"fictional_function",{1,&a,0,0},{&res7,&tipo7}};
   external_struct_array [6]= estrerr2;
 
+  Exec_struct_external estrerr3 ={PSEUDOEXEC_TESTLIB,"testlib_triangle_print",{2,&a,0,0},{&res8,&tipo8}};
+  external_struct_array [7]= estr1;
+
   
   
   disastrOS_printStatus();
@@ -103,6 +106,9 @@ void initFunction(void* args) {
   alive_children++;
 
   disastrOS_spawn(execFunction,&estr5);
+  alive_children++;
+
+  disastrOS_spawn(execFunction,&estrerr3);
   alive_children++;
   
   /*disastrOS_spawn(execFunction,&estrerr1);

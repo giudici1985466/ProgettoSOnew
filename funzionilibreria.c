@@ -7,6 +7,13 @@
 
 
 void* testlib_triangle_print (Exec_struct_internal* arguments, Exec_result* result){                //stampa un traingolo prendendo il primo degli argomenti come parametro
+    
+    int numargs = arguments->num_args;
+    if(numargs!=1){
+        printf("+++Wrong number of arguments+++\n");
+        return NULL;
+    }
+    
     int height = *(int*)(arguments->arg1);
     for (int i = 1; i <= height; ++i) {
         for (int j = 1; j <= height - i; ++j) {
@@ -22,6 +29,14 @@ void* testlib_triangle_print (Exec_struct_internal* arguments, Exec_result* resu
 }
 
 void* testlib_rectangle_print (Exec_struct_internal* arguments, Exec_result* result){             //stampa un rettangolo con i primi due argomenti come dimensioni
+    
+    int numargs = arguments->num_args;
+    if(numargs!=2){
+        printf("+++Wrong number of arguments+++\n");
+        return NULL;
+    }
+    
+    
     int width= *(int*)(arguments->arg1);
     int height= *(int*)(arguments->arg2);
     for (int i = 0; i < height; ++i) {
@@ -34,7 +49,14 @@ void* testlib_rectangle_print (Exec_struct_internal* arguments, Exec_result* res
 }
 
 void* testlib_cube_volume (Exec_struct_internal* arguments, Exec_result* result){               //calcola il volume di un cubo usando i 3 argomenti come dimensione
-
+    
+    int numargs = arguments->num_args;
+    if(numargs!=3){
+        printf("+++Wrong number of arguments+++\n");
+        return NULL;
+    }
+    
+    
     float a = *(float*)(arguments->arg1);
     float b = *(float*)(arguments->arg2);
     float c = *(float*)(arguments->arg3);
@@ -65,6 +87,8 @@ void* testlib_max_int (Exec_struct_internal* arguments, Exec_result* result){   
         }
         break;
     default:
+        printf("+++Wrong number of arguments+++\n");
+        return NULL;
         break;
     }
 
